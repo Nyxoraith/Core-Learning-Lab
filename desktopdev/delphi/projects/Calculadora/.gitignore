@@ -1,0 +1,12 @@
+# Arquivos de Compilação e Binários
+*.dcu
+*.exe
+
+# Pastas de Saída (Output)
+__history/
+__recovery/
+Win32/
+Win64/
+
+# Outros
+*.log
