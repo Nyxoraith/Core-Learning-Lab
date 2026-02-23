@@ -1,0 +1,1 @@
+void criptografa(char* msg);
