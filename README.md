@@ -14,7 +14,7 @@ O repositório é organizado por níveis de abstração e domínios tecnológico
 
 ### 🏗️ [Low-Level](./low-level)
 * **Assembly:** Arquitetura de computadores e manipulação de hardware.
-* **C (UTFPR):** Base sólida de algoritmos, ponteiros e gestão de memória.
+* **C:** Base sólida de algoritmos, ponteiros e gestão de memória.
     * `fundamentos-1`: Lógica, condicionais e funções.
     * `fundamentos-2`: Alocação dinâmica, structs e arquivos (binário/texto).
 
