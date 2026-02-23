@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSPlayGames</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="#">DSPlayGames</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#jogos">Jogos</a></li>
+                <li><a href="#inscricao">Inscreva-se</a></li>
+            </ul>
+            <img src="img/user.svg" alt="Ícone de usuário">
+        </nav>
+    </header>
+
+    <main>
+        <section id="noticias">
+            <h2>Últimas notícias</h2>
+            <article>
+                <h3>Título principal da notícia</h3>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vitae ducimus aperiam.</h4>
+                <hr>
+                <span class="data">23/02/2022</span>
+                <p class="conteudo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vitae ducimus aperiam. Harum, in dicta? Perspiciatis nam, facilis nesciunt, expedita esse labore officiis ut ipsam voluptates aperiam laboriosam sequi! Expedita vitae iste quae veniam molestiae ea ad alias maiores. Numquam dolor eaque recusandae eius nihil quibusdam esse nisi asperiores in nulla dicta distinctio aliquid ullam aspernatur ad amet fugit dolorem sapiente veritatis quo, rem a. Molestiae qui sed enim! Laborum doloribus nisi quia dolore obcaecati reiciendis quae, numquam consectetur sed animi temporibus inventore nemo. Asperiores fugit rerum, placeat quas in nobis obcaecati similique quae assumenda culpa ab sit voluptatum molestiae voluptates facilis optio recusandae tempore nihil atque et nesciunt nemo perferendis adipisci harum. Corrupti eum autem veritatis et beatae reiciendis, deleniti corporis, voluptas, eaque ipsa nemo odio? Eligendi sapiente id enim quibusdam, repudiandae optio error! Vitae perspiciatis voluptatem sequi nostrum necessitatibus culpa fuga ...</p>
+                <a href="#">Ler mais...</a>
+            </article>
+
+            <article>
+                <h3>Título principal da notícia</h3>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vitae ducimus aperiam.</h4>
+                <hr>
+                <span class="data">23/02/2022</span>
+                <p class="conteudo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vitae ducimus aperiam. Harum, in dicta? Perspiciatis nam, facilis nesciunt, expedita esse labore officiis ut ipsam voluptates aperiam laboriosam sequi! Expedita vitae iste quae veniam molestiae ea ad alias maiores. Numquam dolor eaque recusandae eius nihil quibusdam esse nisi asperiores in nulla dicta distinctio aliquid ullam aspernatur ad amet fugit dolorem sapiente veritatis quo, rem a. Molestiae qui sed enim! Laborum doloribus nisi quia dolore obcaecati reiciendis quae, numquam consectetur sed animi temporibus inventore nemo. Asperiores fugit rerum, placeat quas in nobis obcaecati similique quae assumenda culpa ab sit voluptatum molestiae voluptates facilis optio recusandae tempore nihil atque et nesciunt nemo perferendis adipisci harum. Corrupti eum autem veritatis et beatae reiciendis, deleniti corporis, voluptas, eaque ipsa nemo odio? Eligendi sapiente id enim quibusdam, repudiandae optio error! Vitae perspiciatis voluptatem sequi nostrum necessitatibus culpa fuga ...</p>
+                <a href="#">Ler mais...</a>
+            </article>
+
+            <button>Carregar mais</button>
+        </section>
+
+        <section id="jogos">
+            <h2>Jogos</h2>
+            <div class="container">
+                <article>
+                    <img src="img/game.png" alt="Capa do jogo Horizon Forbidden West">
+                    <h3>Horizon Forbidden West</h3>
+                    <p><strong>De</strong> Sony Interactive Entertainment</p>
+                    <p><strong class="nota">9.7</strong></p>
+                </article>
+                
+                <article>
+                    <img src="img/game.png" alt="Capa do jogo Horizon Forbidden West">
+                    <h3>Horizon Forbidden West</h3>
+                    <p><strong>De</strong> Sony Interactive Entertainment</p>
+                    <p><strong class="nota">9.7</strong></p>
+                </article>
+                
+                <article>
+                    <img src="img/game.png" alt="Capa do jogo Horizon Forbidden West">
+                    <h3>Horizon Forbidden West</h3>
+                    <p><strong>De</strong> Sony Interactive Entertainment</p>
+                    <p><strong class="nota">9.7</strong></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="inscricao">
+            <div class="container-inscricacao">
+                <h2>Faça sua inscrição</h2>
+                <fieldset id="formulario">
+                    <form action="#">
+                        <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+                        <input type="text" name="name" placeholder="Nome completo" autocomplete="name" required>
+                        
+                        <p id="platforms">Qual sua plataforma preferida</p>
+
+                        <fieldset class="labels">
+                            <input type="radio" name="platform" id="platform-PC">
+                            <label for="platform-PC">PC</label>
+                        </fieldset>
+
+                        <fieldset class="labels">
+                            <input type="radio" name="platform" id="platform-Xbox">
+                            <label for="platform-Xbox">Xbox</label>
+                        </fieldset>
+
+                        <fieldset class="labels">
+                            <input type="radio" name="platform" id="platform-Playstation">
+                            <label for="platform-Playstation">Playstation</label>
+                        </fieldset>
+
+                        <fieldset class="labelnews labels">
+                            <input type="checkbox" name="news" id="news">
+                            <label for="news">Desejo receber novidades</label>
+                        </fieldset>
+
+                        <fieldset id="formbuttons">
+                            <input type="submit" value="Enviar" id="enviar">
+                            <input type="reset" value="Limpar" id="limpar">
+                        </fieldset>
+                    </form>
+                </fieldset>
+            </div>
+        </section>        
+    </main>
+
+    <footer>
+        <div id="social">
+            <a href="#">
+                <p>@dsplaygames</p>
+            </a>
+            <a href="#">
+                <p>/dsplaygames</p>
+            </a>
+        </div>
+        <div id="copy">
+            <p>DS Play Games Ltda. Todos direitos reservados</p>
+        </div>
+        <div id="termos">
+            <a href="#">Política de privacidade</a>
+            <a href="#">Termos de uso</a>
+        </div>
+    </footer>
+</body>
+</html>

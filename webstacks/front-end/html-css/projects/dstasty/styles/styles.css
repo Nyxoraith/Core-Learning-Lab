@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --background-color: #DDDDDD;
+    --links-color: #FFFFFF;
+    --primary-color: #F03C42;
+    --second-color: #5E5E5E;;
+    --third-color: #FFF964;
+    --promo-color: #02B814;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: var(--links-color);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: var(--primary-color);
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+    text-align: center;;
+}
+
+main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    background-color: var(--primary-color);
+    height: 120px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+footer address {
+    color: var(--links-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.card-pizzas {
+    background-color: white;
+    display: flex;
+    border-radius: 12px 12px 12px 12px;
+    margin: 20px auto;
+}
+
+.card-pizzas img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px 0 0 12px;
+}
+
+.card-pizza-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.card-pizza-description h3 {
+    font-size: 24px;
+    color: var(--second-color);
+}
+
+.card-pizza-description p {
+    font-size: 14px;
+    color: var(--second-color);
+}
+
+.card-pizza-description span {
+    font-size: 24px;
+    color: var(--promo-color);
+    font-weight: bold;
+}
+
+.card-comment {
+    background-color: var(--third-color);
+    color: var(--primary-color);
+    padding: 25px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#pizzas {
+    background-color: var(--background-color);
+    padding: 20px 10px;
+}
+
+#comments {
+    padding: 20px 10px;
+}
+
+#comments h2 {
+    font-size: 32px;
+    color: var(--second-color);
+    text-align: center;
+    margin-bottom: 40px;
+}

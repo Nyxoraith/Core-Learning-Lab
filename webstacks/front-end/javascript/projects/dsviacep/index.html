@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSViaCep</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="module" src="scripts/dsviacep.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="#">DSViaCep</a></h1>
+            <a id="contact-link">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="formulario">
+            <div class="container">
+                <form name="novoEndereco">
+                    <fieldset>
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" placeholder="CEP" required>
+                        <span class="mensagem-erro" data-error="cep"></span>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="rua">Rua</label>
+                        <input type="text" name="rua" id="rua" placeholder="Logradouro" disabled>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="numero">Número da Casa</label>
+                        <input type="text" name="numero" id="numero" placeholder="Número" required>
+                        <span class="mensagem-erro" data-error="number"></span>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" placeholder="Cidade" disabled>
+                    </fieldset>
+
+                    <div class="buttons-container">
+                        <button name="btnSave" type="submit" class="buttons">Salvar</button>
+                        <button name="btnClear" type="reset" class="buttons">Limpar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="enderecos">
+            <ul id="lista-enderecos">
+            </ul>
+        </section>
+    </main>
+
+    <section id="modal-contact" class="modal-container">
+        <div class="modal-box">
+            <div class="modal-content">
+                <a href="https://github.com/Nyxoraith" target="_blank">
+                    <img src="img/github.svg" alt="Github Logo">
+                    @Nyxoraith
+                </a>
+                <a href="https://x.com/nyxoraith" target="_blank">
+                    <img src="img/x.png" alt="Twitter Logo">
+                    @Nyxoraith</a>
+            </div>
+            <button id="modal-contact-close" name="clse" class="buttons">Fechar</button>
+        </div>
+    </section>
+</body>
+</html>

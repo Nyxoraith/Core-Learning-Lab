@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Stored</title>
+</head>
+<body>
+    <form action="index.html" method="get">
+        <label for="comment">
+            Escrever um comentario.
+        </label>
+        <input type="text" name="comment">
+        <input type="submit" value="Comentar">
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const comment = urlParams.get("comment");
+        if(comment != null){
+            localStorage.setItem("comment", comment);
+        }
+        const comentario = localStorage.getItem("comment");
+        if(comentario != null){
+            document.writeln(comentario);
+        }
+
+    </script>
+</body>
+</html>
