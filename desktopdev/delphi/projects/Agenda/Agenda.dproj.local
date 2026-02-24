@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2026/02/09 21:15:32.000.561,=C:\Users\Vinicius\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2026/02/23 21:51:02.000.202,=C:\Users\Vinicius\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2026/02/23 21:51:36.000.111,C:\Users\Vinicius\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\unPrincipal.dfm</Transaction>
+    <Transaction>2026/02/23 21:51:36.000.111,C:\Users\Vinicius\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\unPrincipal.pas</Transaction>
+    <Transaction>2026/02/23 21:51:40.000.422,C:\Users\Vinicius\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\Agenda.dproj</Transaction>
+    <Transaction>2026/02/23 21:53:21.000.788,=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\Unit1.pas</Transaction>
+    <Transaction>2026/02/23 21:54:22.000.665,D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\Unit1.dfm=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\unDM.dfm</Transaction>
+    <Transaction>2026/02/23 21:54:22.000.665,D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\Unit1.pas=D:\Documentos\Programação\Core-Learning-Lab\desktopdev\delphi\projects\Agenda\unDM.pas</Transaction>
+  </Transactions>
+</BorlandProject>
