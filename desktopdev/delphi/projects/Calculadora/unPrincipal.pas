@@ -61,7 +61,7 @@ begin
   if validarCampos then
   begin
     txtResultado.Text := FloatToStr(calcularResultado(StrToFloat(txtNum1.Text), StrToFloat(txtNum2.Text), 'subtrair'));
-    registrarLog('Subtração, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
+    registrarLog('Subtraï¿½ï¿½o, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
   end;
 
 end;
@@ -71,7 +71,7 @@ begin
   if validarCampos then
   begin
     txtResultado.Text := FloatToStr(calcularResultado(StrToFloat(txtNum1.Text), StrToFloat(txtNum2.Text), 'multiplicar'));
-    registrarLog('Multiplicação, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
+    registrarLog('Multiplicaï¿½ï¿½o, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
   end;
 
 end;
@@ -82,13 +82,13 @@ begin
     begin
       if txtNum2.Text = '0' then
         begin
-          ShowMessage('Impossível dividir por zero!');
-          registrarLog('Erro de divisão por zero.');
+          ShowMessage('Impossï¿½vel dividir por zero!');
+          registrarLog('Erro de divisï¿½o por zero.');
         end
       else
         begin
           txtResultado.Text := FloatToStr(calcularResultado(StrToFloat(txtNum1.Text), StrToFloat(txtNum2.Text), 'dividir'));
-          registrarLog('Divisão, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
+          registrarLog('Divisï¿½o, num1=' + txtNum1.Text + ', num2=' + txtNum2.Text + ', resultado=' + txtResultado.Text);
         end;
     end;
 
@@ -114,14 +114,14 @@ end;
 
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  registrarLog('Aplicação Finalizada.');
+  registrarLog('Aplicaï¿½ï¿½o Finalizada.');
   registrarLog('------------------------------');
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   registrarLog('------------------------------');
-  registrarLog('Aplicação Iniciada.');
+  registrarLog('Aplicaï¿½ï¿½o Iniciada.');
 end;
 
 procedure TForm1.optVisualClick(Sender: TObject);
@@ -130,12 +130,12 @@ begin
     0:
       begin
         TStyleManager.SetStyle('Windows');
-        registrarLog('Visual da aplicação alterado para Light');
+        registrarLog('Visual da aplicaï¿½ï¿½o alterado para Light');
       end;
     1:
       begin
         TStyleManager.SetStyle('Glow');
-        registrarLog('Visual da aplicação alterado para Dark');
+        registrarLog('Visual da aplicaï¿½ï¿½o alterado para Dark');
       end;
   end;
 
@@ -169,7 +169,7 @@ begin
       Append(arquivo)
     else
       Rewrite(arquivo);
-
+w
     Writeln(arquivo, '[' + DateTimeToStr(now()) + '] - ' + acao);
   finally
     CloseFile(arquivo);
