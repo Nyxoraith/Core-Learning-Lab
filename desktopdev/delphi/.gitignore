@@ -1,12 +1,44 @@
 # Arquivos de Compilação e Binários
-*.dcu
 *.exe
+*.dll
+*.bpl
+*.bpi
+*.dcp
+*.so
+*.apk
+*.drc
+*.map
+*.dres
+*.rsm
+*.tds
+*.dcu
+*.lib
+*.a
+*.o
+*.ocx
+
+# Arquivos autogerados
+*.cfg
+*.hpp
+*Resource.rc
+
+# Arquivos Locais
+*.local
+*.identcache
+*.projdata
+*.tvsconfig
+*.dsk
+*.dsv
 
 # Pastas de Saída (Output)
-__history/
-__recovery/
 Win32/
 Win64/
 
+# Pastas de histórico e backups
+__history/
+__recovery/
+*.~*
+
 # Outros
 *.log
+modules/
