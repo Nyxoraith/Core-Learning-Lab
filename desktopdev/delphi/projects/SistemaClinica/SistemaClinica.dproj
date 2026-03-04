@@ -124,8 +124,21 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="unPrincipal.pas">
-            <Form>Form1</Form>
+            <Form>formPrincipal</Form>
             <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadPacientes.pas">
+            <Form>formCadPacientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unCadAgendamentos.pas">
+            <Form>formCadAgendamentos</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unDM.pas">
+            <Form>DM</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
