@@ -1,0 +1,11 @@
+# Arquivos de Configuração
+*.vcxproj.user
+
+# Pastas de saída
+x64/
+x32/
+
+# Pasta de Arquivos Temporários
+.vs/
+*/x64/
+*/x32/

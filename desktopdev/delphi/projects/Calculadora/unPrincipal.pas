@@ -1,4 +1,4 @@
-unit unPrincipal;
+﻿unit unPrincipal;
 
 interface
 
@@ -169,7 +169,6 @@ begin
       Append(arquivo)
     else
       Rewrite(arquivo);
-w
     Writeln(arquivo, '[' + DateTimeToStr(now()) + '] - ' + acao);
   finally
     CloseFile(arquivo);
