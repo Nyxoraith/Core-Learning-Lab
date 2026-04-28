@@ -20,12 +20,10 @@ int main(){
         return 1;
     }
 
-    ports = 65535;
-    child = 100;
-    portsChild = ports / child;
+    portsChild = PORTS / CHILD;
 
-    for(int i=0; i<child; i++){
-        pID_t pID = fork();
+    for(int i=0; i < CHILD; i++){
+        pid_t pID = fork();
 
        if(pID < 0){
             printf("[ERRO] Erro no Fork!");
@@ -53,7 +51,7 @@ int main(){
     }
 
     printf("Pai disparou todos os processos. Aguardando scans...\n");
-    for(int i=0; i < child; i++) {
+    for(int i=0; i < CHILD; i++) {
         wait(NULL);
     }
     printf("\nPortscanning completo\n");
