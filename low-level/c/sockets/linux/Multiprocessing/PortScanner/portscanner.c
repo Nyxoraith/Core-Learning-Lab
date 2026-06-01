@@ -1,22 +1,23 @@
 #include <stdio.h>
+#include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <string.h>
 #include <unistd.h>
 
-#define PORTS 65535
+#define PORTS 65536
 #define CHILD 100
 
 int main(){
-    int sockFD, portsChild;
+    int portsChild;
     struct sockaddr_in targetAddr;
     pid_t pID;
 
     memset(&targetAddr, 0, sizeof(targetAddr));
     targetAddr.sin_family = AF_INET;
     if(inet_pton(AF_INET, "127.0.0.1", &targetAddr.sin_addr) < 0){
-        printf("[ERRO] Erro ao converter o endere�o!");
+        printf("[ERRO] Erro ao converter o endereço!");
         return 1;
     }
 
@@ -31,16 +32,21 @@ int main(){
         }
 
         if(pID == 0){
-            int init = i * portsChild;
+            int init = i * portsChild + (i == 0 ? 1 : 0);
             int end = (i + 1) * portsChild;
 
+            if(i == CHILD - 1){
+                end = PORTS;
+            }
+
             for(int j=init; j<end; j++){
-                sockFD = socket(AF_INET, SOCK_STREAM, 0);
+                int sockFD = socket(AF_INET, SOCK_STREAM, 0);
                 if(sockFD < 0){
                     continue;
                 }
 
                 targetAddr.sin_port = htons(j);
+
                 if(connect(sockFD, (struct sockaddr *) &targetAddr, sizeof(targetAddr)) == 0){
                     printf("[FILHO %d]: PORTA ABERTA: %d\n", i, j);
                 }
@@ -51,9 +57,12 @@ int main(){
     }
 
     printf("Pai disparou todos os processos. Aguardando scans...\n");
+
     for(int i=0; i < CHILD; i++) {
         wait(NULL);
     }
+
     printf("\nPortscanning completo\n");
+    
     return 0;
 }

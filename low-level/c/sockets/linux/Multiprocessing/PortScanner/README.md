@@ -4,7 +4,7 @@ Este projeto é um scanner de portas TCP de alta performance desenvolvido em C p
 
 ## 🧠 O Desafio: Sequencial vs. Paralelo
 
-Escanear 65.535 portas de forma sequencial é ineficiente devido ao tempo de espera (timeout) de cada tentativa de conexão. Ao utilizar fork(), este programa divide o intervalo total de portas em blocos menores, processando-os simultaneamente.
+Escanear 65.536 portas de forma sequencial é ineficiente devido ao tempo de espera (timeout) de cada tentativa de conexão. Ao utilizar fork(), este programa divide o intervalo total de portas em blocos menores, processando-os simultaneamente.
 
 ## 📊 Benchmark de Performance
 Nos testes realizados, o ganho de velocidade foi superior a 300%:
