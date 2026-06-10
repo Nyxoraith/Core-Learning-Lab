@@ -6,17 +6,24 @@
 #include <string.h>
 #include <unistd.h>
 
-#define PORTS 65536
+#define PORTS 65535
 #define CHILD 100
 
 int main(){
     int portsChild;
+    char tmpTargetIP[20];
     struct sockaddr_in targetAddr;
     pid_t pID;
 
     memset(&targetAddr, 0, sizeof(targetAddr));
     targetAddr.sin_family = AF_INET;
-    if(inet_pton(AF_INET, "127.0.0.1", &targetAddr.sin_addr) < 0){
+
+    printf("Digite o endereço IP: ");
+    fgets(tmpTargetIP, 20, stdin);
+    tmpTargetIP[strcspn(tmpTargetIP, "\n")]='\0';
+    setbuf(stdin, NULL);
+
+    if(inet_pton(AF_INET, tmpTargetIP, &targetAddr.sin_addr) <= 0){
         printf("[ERRO] Erro ao converter o endereço!");
         return 1;
     }
@@ -24,7 +31,7 @@ int main(){
     portsChild = PORTS / CHILD;
 
     for(int i=0; i < CHILD; i++){
-        pid_t pID = fork();
+        pID = fork();
 
        if(pID < 0){
             printf("[ERRO] Erro no Fork!");
@@ -39,7 +46,7 @@ int main(){
                 end = PORTS;
             }
 
-            for(int j=init; j<end; j++){
+            for(int j=init; j<=end; j++){
                 int sockFD = socket(AF_INET, SOCK_STREAM, 0);
                 if(sockFD < 0){
                     continue;
@@ -56,13 +63,11 @@ int main(){
         }
     }
 
-    printf("Pai disparou todos os processos. Aguardando scans...\n");
-
     for(int i=0; i < CHILD; i++) {
         wait(NULL);
     }
 
     printf("\nPortscanning completo\n");
-    
+
     return 0;
 }

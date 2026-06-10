@@ -27,13 +27,19 @@ int main(){
     int status;
     ThreadArgs threadArgs[THREADS];
     pthread_t threads[THREADS];
+    char tmpTargetIP[20];
 
     int portsThreads = PORTS / THREADS;
+
+    printf("Digite o endereço IP: ");
+    fgets(tmpTargetIP, 20, stdin);
+    tmpTargetIP[strcspn(tmpTargetIP, "\n")]='\0';
+    setbuf(stdin, NULL);
 
     pthread_mutex_init(&printLock, NULL);
 
     for(int i=0; i<THREADS; i++){
-        strcpy(threadArgs[i].targetIP, "127.0.0.1");
+        strcpy(threadArgs[i].targetIP, tmpTargetIP);
         threadArgs[i].initPort = i * portsThreads + (i == 0 ? 1 : 0);
         threadArgs[i].endPort = (i + 1) * portsThreads;
 
