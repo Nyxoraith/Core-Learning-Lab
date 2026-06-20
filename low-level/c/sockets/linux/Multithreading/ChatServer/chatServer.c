@@ -61,6 +61,7 @@ typedef struct {
     int id;
     int port;
     int socket;
+    int indexMemory;
     char addr[20];
     char username[32];
     ServerContext *serverContext;
@@ -151,10 +152,11 @@ int chatServer(){
             continue;
         }
 
-        clientID++;
+        int indexMemory = -1;
         pthread_mutex_lock(&server->clientSocketsLock);
         for(int i=0; i<server->qtClients; i++){
             if(server->clientSockets[i] == 0){
+                indexMemory = i;
                 server->clientSockets[i] = newSocket;
                 server->nClients++;
 
@@ -166,17 +168,19 @@ int chatServer(){
                     if(tmpClientSockets == NULL){
                         perror("[ERRO]: Erro ao re-alocar memória!");
                         pthread_mutex_unlock(&server->clientSocketsLock);
+                        close(newSocket);
                         return 1;
                     }
                     server->clientSockets = tmpClientSockets;
 
-                    int *tmpUserList = realloc(server->userList, sizeof(int) * server->qtClients);
+                    char **tmpUserList = realloc(server->userList, sizeof(char *) * server->qtClients);
                     if(tmpUserList == NULL){
                         perror("[ERRO]: Erro ao re-alocar memória!");
                         pthread_mutex_unlock(&server->clientSocketsLock);
+                        close(newSocket);
                         return 1;
                     }
-                    server->userList = (char**) tmpUserList;
+                    server->userList = tmpUserList;
 
                     for(int j=oldCapacity; j<server->qtClients; j++){
                         server->clientSockets[j] = 0;
@@ -187,16 +191,18 @@ int chatServer(){
             }
         }
         pthread_mutex_unlock(&server->clientSocketsLock);
-
+        
         DataClient *client = malloc(sizeof(DataClient));
         if(client == NULL){
             perror("[ERRO] Erro ao Alocar Memória!");
             return 1;
         }
-
+        
+        clientID++;
         client->id = clientID;
         client->port = ntohs(clientAddr.sin_port);
         client->socket = newSocket;
+        client->indexMemory = indexMemory;
         client->addr[sizeof(client->addr) - 1] = '\0';
         strncpy(client->addr, inet_ntoa(clientAddr.sin_addr), sizeof(client->addr) - 1);
         client->serverContext = server;
@@ -299,12 +305,7 @@ void* threadClient(void *threadArgs){
 
     // Guarda o username do cliente na userList
     pthread_mutex_lock(&server->clientSocketsLock);
-    for(int i=0; i<server->qtClients; i++){
-        if(server->userList[i] == NULL || server->userList[i] == 0){
-            server->userList[i] = client->username;
-            break;
-        }
-    }
+    server->userList[client->indexMemory] = client->username;
     pthread_mutex_unlock(&server->clientSocketsLock);
 
     // Guardar o log de conexão do cliente
@@ -390,15 +391,12 @@ void* threadClient(void *threadArgs){
     }
 
     printf("%s saiu do chat.\n", client->username);
+    
     // Remover o cliente da lista de clientes conectados
     pthread_mutex_lock(&server->clientSocketsLock);
-    for(int i=0; i<server->qtClients; i++){
-        if(server->clientSockets[i] == client->socket){
-            server->clientSockets[i] = 0;
-            server->nClients--;
-            break;
-        }
-    }
+    server->clientSockets[client->indexMemory] = 0;
+    server->userList[client->indexMemory] = NULL;
+    server->nClients--;
     pthread_mutex_unlock(&server->clientSocketsLock);
 
     // Guardar o log de desconexão do cliente
