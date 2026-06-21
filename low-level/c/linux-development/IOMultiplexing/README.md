@@ -1,4 +1,4 @@
-# 🏗️ I/O Multiplexing Chat (Select)
+# 🏍 I/O Multiplexing Chat (Select)
 
 Este módulo faz parte do laboratório de **Low-Level Sockets** e consiste em um Sistema de Chat Cliente-Servidor desenvolvido em C, utilizando a API de Sockets do Linux. O foco principal é a implementação de *I/O Multiplexing*, permitindo que o servidor gerencie múltiplas conversas simultâneas sem a necessidade de múltiplas threads ou processos.
 

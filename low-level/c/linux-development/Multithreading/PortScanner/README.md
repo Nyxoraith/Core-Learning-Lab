@@ -1,4 +1,4 @@
-# 🚀 Asynchronous Threaded Portscanner (Pthread + Non-Blocking)
+# 📡 Asynchronous Threaded Portscanner (Pthread + Non-Blocking)
 
 Este projeto é um scanner de portas TCP de alta performance desenvolvido em C para ambientes Linux. Ele eleva o nível de concorrência ao combinar [**Multithreading**](../../Multiprocessing/) para divisão de carga de trabalho e [**I/O Multiplexing**](../../IOMultiplexing/) com *sockets não-bloqueantes* para gerenciar timeouts de forma ultra-eficiente.
 

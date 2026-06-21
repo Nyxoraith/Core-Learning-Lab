@@ -1,4 +1,4 @@
-# 🔱 Multiprocessing Lab (Fork-based Sockets)
+# ✈ Multiprocessing Lab (Fork-based Sockets)
 
 Este diretório centraliza experimentos de rede que utilizam a criação de *Processos Filhos (fork)* para alcançar concorrência e isolamento no Linux.
 
@@ -12,13 +12,13 @@ Diferente da [*multiplexação de I/O (Select)*](../IOMultiplexing/), o modelo d
 * **Simplicidade de Memória:** Cada processo possui seu próprio espaço de endereçamento, eliminando a necessidade inicial de travas de sincronização (locks/mutexes).
 
 ## 📂 Projetos no Lab
-### [📡 Portscanner](./PortScanner/)
+### [🚀 Portscanner](./PortScanner/)
 Um scanner TCP de alta performance que divide o range de 65.535 portas entre múltiplos processos.
 
 * **Destaque:** Redução de tempo de scan de 0.82s para 0.27s utilizando 100 processos simultâneos.
 * **Conceitos:** Divisão de carga (workload balance), sincronização com `wait()` e medição de performance de CPU.
 
-### [🤖 Forking C2 Prototype](./forkingC2Prototype/)
+### [🔱 Forking C2 Prototype](./forkingC2Prototype/)
 
 Um protótipo de infraestrutura de Comando e Controle (C2) para execução remota de comandos.
 

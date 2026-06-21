@@ -1,4 +1,4 @@
-# 🧵 Multithreading Lab (Pthread-based Sockets)
+# 🚀 Multithreading Lab (Pthread-based Sockets)
 
 Este diretório contém experimentos avançados de rede utilizando **Threads (pthread)** no Linux. O objetivo aqui é alcançar performance máxima de varredura e comunicação reduzindo o uso de recursos do sistema operacional.
 
@@ -16,7 +16,7 @@ Enquanto o modelo de [*Multiprocessing (Fork)*](../Multiprocessing/) cria clones
 
 Um sistema de chat em tempo real baseado na arquitetura Cliente-Servidor de alto desempenho e escalabilidade ao utilizar Multithreading para gerenciar múltiplos clientes simultâneos e Variáveis de Condição síncronas para desacoplar a entrega de mensagens e a escrita de logs.
 
-### 🚀 [Asynchronous Threaded Portscanner](./PortScanner/)
+### 📡 [Asynchronous Threaded Portscanner](./PortScanner/)
 
 Otimização de varredura TCP. Combina a divisão de carga em 100 threads com sockets não-bloqueantes e gerenciamento fino de timeout individual por porta.
 
