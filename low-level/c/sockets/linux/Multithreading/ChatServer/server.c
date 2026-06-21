@@ -301,7 +301,7 @@ void* threadClient(void *threadArgs){
         strcpy(client->username, buffer);
     }
     
-    printf("[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Conectado]\n", client->addr, client->port, client->id, client->username);
+    printf("[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Conectado]\n\n", client->addr, client->port, client->id, client->username);
 
     // Guarda o username do cliente na userList
     pthread_mutex_lock(&server->clientSocketsLock);
@@ -453,11 +453,11 @@ void* threadSendMsg(void *threadArgs){
         pthread_mutex_unlock(&server->msgLock);
 
         if(newMsg.flag == 0){ 
-            snprintf(tmpBuffer, sizeof(tmpBuffer), "%s saiu no chat.\n", newMsg.username);
+            snprintf(tmpBuffer, sizeof(tmpBuffer), "\n%s saiu no chat.\n", newMsg.username);
         }else if(newMsg.flag == 1){
             snprintf(tmpBuffer, sizeof(tmpBuffer), "%s entrou no chat.\n", newMsg.username);
         }else if(newMsg.flag == 2){
-            snprintf(tmpBuffer, sizeof(tmpBuffer), "[%s]: %s\n", newMsg.username, newMsg.message);
+            snprintf(tmpBuffer, sizeof(tmpBuffer), "[%s]: %s", newMsg.username, newMsg.message);
         }
         
         // Enviar a mensagem para os outros clientes
@@ -497,9 +497,9 @@ void* threadLogger(void *threadArgs){
         }
 
         if(newLog->flag == 0){
-            fprintf(logFile, "[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Desconectado]\n", newLog->addr, newLog->port, newLog->id, newLog->username);
+            fprintf(logFile, "\n[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Desconectado]\n", newLog->addr, newLog->port, newLog->id, newLog->username);
         }else if(newLog->flag == 1){
-            fprintf(logFile, "[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Conectado]\n", newLog->addr, newLog->port, newLog->id, newLog->username);
+            fprintf(logFile, "[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Conectado]\n\n", newLog->addr, newLog->port, newLog->id, newLog->username);
         }else if (newLog->flag == 2){
             fprintf(logFile, "[IP]: %s - [PORT]: %d - [ClientID]: %d - [Username]: %s - [Mensagem]: %s\n", newLog->addr, newLog->port, newLog->id, newLog->username, newLog->message);
         }
@@ -516,12 +516,12 @@ int serverCommands(const char *commands[], int size, char *buffer, DataClient *c
     for(int i=0; i<size; i++){
         if(strcmp(commands[i], buffer) == 0){
             if(i == 0){ //Nick
-                snprintf(tmpBuffer, sizeof(tmpBuffer), "Seu usuário é: %s\n", client->username);
+                snprintf(tmpBuffer, sizeof(tmpBuffer), "\nSeu usuário é: %s\n", client->username);
                 send(client->socket, tmpBuffer, strlen(tmpBuffer), 0);
                 return 0;
             }else if(i == 1){ //List
                 pthread_mutex_lock(&server->clientSocketsLock);
-                strcpy(tmpBuffer, "--- Usuários Online ---\n"); 
+                strcpy(tmpBuffer, "\n--- Usuários Online ---\n"); 
                 for(int j=0; j<server->qtClients; j++){
                     if(server->userList[j] != NULL){
                         strcat(tmpBuffer, "-> ");
@@ -533,7 +533,7 @@ int serverCommands(const char *commands[], int size, char *buffer, DataClient *c
                 send(client->socket, tmpBuffer, strlen(tmpBuffer), 0);
                 return 0;
             }else if(i == 2){ //Quit
-                strcpy(tmpBuffer,"Desconectando do servidor... Até logo!\n");
+                strcpy(tmpBuffer,"\nDesconectando do servidor... Até logo!\n");
                 send(client->socket, tmpBuffer, strlen(tmpBuffer), 0);
                 return -1;
             }
