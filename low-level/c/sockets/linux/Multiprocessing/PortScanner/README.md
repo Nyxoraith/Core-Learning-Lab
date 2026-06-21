@@ -3,7 +3,6 @@
 Este projeto é um scanner de portas TCP de alta performance desenvolvido em C para ambientes Linux. Ele utiliza a técnica de *Multiprocessing* para dividir a carga de trabalho entre múltiplos processos, reduzindo drasticamente o tempo total de varredura.
 
 ## 🧠 O Desafio: Sequencial vs. Paralelo
-
 Escanear 65.536 portas de forma sequencial é ineficiente devido ao tempo de espera (timeout) de cada tentativa de conexão. Ao utilizar fork(), este programa divide o intervalo total de portas em blocos menores, processando-os simultaneamente.
 
 ## 📊 Benchmark de Performance
@@ -21,7 +20,7 @@ Nos testes realizados, o ganho de velocidade foi superior a 300%:
 
 ## 📂 Estrutura dos Arquivos
 
-* **`portscan_fork.c`:** Implementação principal com a lógica de fatiamento e criação de processos.
+* [**`portscan_fork.c`:**](./portscanner.c) Implementação principal com a lógica de fatiamento e criação de processos.
 
 ## 🚀 Como Executar
 

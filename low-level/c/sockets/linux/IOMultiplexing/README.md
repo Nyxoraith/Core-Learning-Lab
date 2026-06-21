@@ -17,9 +17,9 @@ Diferente de um servidor simples que trava *(block)* esperando uma mensagem de u
 * **Non-blocking feel:** O servidor permanece responsivo para comandos do administrador enquanto atende aos clientes.
 
 ## 📂 Estrutura dos Arquivos
-* **`server.c`:** O núcleo do chat. Implementa a lógica de escuta, aceitação de novos clientes, expansão de memória e redistribuição de mensagens.
+* [**`server.c`:**](./ChatServer/server.c) O núcleo do chat. Implementa a lógica de escuta, aceitação de novos clientes, expansão de memória e redistribuição de mensagens.
 
-* **`client.c`:** Cliente interativo que também utiliza multiplexação para conseguir ler do servidor e do teclado ao mesmo tempo sem travar a interface.
+* [**`client.c`:**](./ChatServer/client.c) Cliente interativo que também utiliza multiplexação para conseguir ler do servidor e do teclado ao mesmo tempo sem travar a interface.
 
 
 ## 🚀 Como Executar
@@ -46,11 +46,8 @@ gcc client.c -o client
 Nesta etapa do laboratório, os principais desafios superados foram:
 
 * **Estado do FD_SET:** Aprendi que o `select()` modifica o conjunto de descritores original. Por isso, é necessário reconstruir o *FD_SET* a cada iteração do loop `while(1)`, garantindo que todos os sockets ativos continuem sendo monitorados.
-
 * **Gestão de Memória Dinâmica:** Implementei o redimensionamento do array de sockets usando `realloc()`. Isso foi fundamental para entender como sistemas de baixo nível lidam com escalabilidade sem desperdiçar RAM.
-
 * **ANSI Escape Codes:** Usei sequências como `\r\033[K` para limpar a linha do terminal e manter a interface do chat limpa (evitando que a mensagem recebida "atropele" o que o usuário está digitando).
-
 * **Multiplexação no Cliente:** Percebi que o cliente também precisa do select(), caso contrário, ele ficaria travado no fgets() e não exibiria as mensagens recebidas do servidor até que o usuário pressionasse Enter.
 
 ---

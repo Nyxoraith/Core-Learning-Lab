@@ -12,13 +12,13 @@ Diferente da [*multiplexação de I/O (Select)*](../IOMultiplexing/), o modelo d
 * **Simplicidade de Memória:** Cada processo possui seu próprio espaço de endereçamento, eliminando a necessidade inicial de travas de sincronização (locks/mutexes).
 
 ## 📂 Projetos no Lab
-### 📡 Portscanner
+### [📡 Portscanner](./PortScanner/)
 Um scanner TCP de alta performance que divide o range de 65.535 portas entre múltiplos processos.
 
 * **Destaque:** Redução de tempo de scan de 0.82s para 0.27s utilizando 100 processos simultâneos.
 * **Conceitos:** Divisão de carga (workload balance), sincronização com `wait()` e medição de performance de CPU.
 
-### 🤖 Forking C2 Prototype
+### [🤖 Forking C2 Prototype](./forkingC2Prototype/)
 
 Um protótipo de infraestrutura de Comando e Controle (C2) para execução remota de comandos.
 
@@ -34,4 +34,4 @@ Um protótipo de infraestrutura de Comando e Controle (C2) para execução remot
 * **Kernel Overhead:** Estudo do custo de criação de processos e o impacto das trocas de contexto (context switching) na performance global da aplicação.
 
 ## 📈 Próximos Passos
-Após dominar o isolamento via processos, este laboratório evoluirá para o estudo de *Multithreading (pthreads)*, visando reduzir o consumo de memória e facilitar a comunicação entre tarefas concorrentes através de memória compartilhada.
+Após dominar o isolamento via processos, este laboratório evoluirá para o estudo de [*Multithreading (pthreads)*](../Multithreading/), visando reduzir o consumo de memória e facilitar a comunicação entre tarefas concorrentes através de memória compartilhada.

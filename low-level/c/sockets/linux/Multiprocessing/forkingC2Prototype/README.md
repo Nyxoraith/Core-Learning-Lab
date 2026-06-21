@@ -9,18 +9,15 @@ Nesta implementação, o servidor utiliza a syscall `fork()` para cada nova cone
 ## 🛠️ Características Técnicas
 
 * **Process Isolation:** Cada *beacon* conectado possui seu próprio espaço de memória e *PID* dedicado.
-
 * **Remote Execution:** O beacon utiliza `popen()` para criar um *pipe* com o shell do sistema, permitindo a execução de comandos como `whoami`, `ls`, `ifconfig`, etc.
-
 * **Zombie Prevention:** Implementação de `signal(SIGCHLD, SIG_IGN)` para garantir que o Kernel limpe automaticamente os processos filhos finalizados, evitando a poluição da tabela de processos.
-
 * **Automated Handshake:** O servidor está programado para enviar um comando inicial `(whoami)` assim que a conexão é estabelecida.
 
 ## 📂 Estrutura dos Arquivos
 
-* **`c2-server.c`:** O servidor C2 *(Painel)*. Gerencia as conexões e dispara processos filhos para interagir com cada *agente*.
+* [**`c2-server.c`:**](./c2-server.c) O servidor C2 *(Painel)*. Gerencia as conexões e dispara processos filhos para interagir com cada *agente*.
 
-* **`beacon.c`:** O agente *(Beacon)*. Conecta-se ao servidor, aguarda comandos, executa-os no shell local e transmite o resultado de volta.
+* [**`beacon.c`:**](./beacon.c) O agente *(Beacon)*. Conecta-se ao servidor, aguarda comandos, executa-os no shell local e transmite o resultado de volta.
 
 ## 🚀 Como Executar
 
@@ -43,15 +40,12 @@ gcc beacon.c -o beacon
 ## 📈 Aprendizados e Desafios Técnicos
 
 * **Manipulação de Pipes:** O uso de `popen()` e `pclose()` foi essencial para capturar o *stdout* de comandos do sistema e transformá-los em *buffers* de texto para envio via *socket*.
-
 * **Gerenciamento de Processos:** Entendi a importância de fechar os *file descriptors* desnecessários no processo filho `close(sockFD)` e no pai `close(newSocket)` para evitar vazamento de recursos.
-
 * **Invisibilidade Operacional:** A técnica de *SIG_IGN* para *SIGCHLD* é um "truque sujo" eficiente em *Red Team* para manter o sistema limpo de processos zumbis `<defunct>`, que são sinais claros de atividade maliciosa para administradores.
-
 * **Escalabilidade Simples:** O modelo de *fork* é robusto para poucos *agentes*, mas me permitiu visualizar a necessidade futura de *Threads* ou [*I/O Multiplexing*](../../IOMultiplexing/) para gerenciar milhares de conexões com menor consumo de RAM.
 
 ---
 
 ## ⚙️ Evolução do Lab
 
-Este protótipo foca em estabilidade via isolamento. Os próximos passos incluem a implementação de criptografia no tráfego (para evitar detecção por IDS/Wireshark) e a transição para um modelo de *Multithreading* para otimização de performance.
+Este protótipo foca em estabilidade via isolamento. Os próximos passos incluem a implementação de criptografia no tráfego (para evitar detecção por IDS/Wireshark) e a transição para um modelo de *Multiprocessing* para otimização de performance.
