@@ -1,13 +1,13 @@
 import requests
 
-url = "http://10.0.0.12/"
+url = "http://127.0.0.1/"
 
 arquivo = open('dicionario2.txt')
 linhas = arquivo.readlines()
 
 for linha in linhas:
 	dados = {'form-username': 'admin',
-        	'form-password': 'senhafoda'}
+        	'form-password': '******'}
 
 	resposta = requests.post(url, data=dados)
 
