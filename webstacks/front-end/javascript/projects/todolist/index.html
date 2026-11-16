@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="module" src="scripts/app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="#">To-Do List</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#add-task">Adicionar</a></li>
+                    <li><a href="#all-tasks">Listar</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="add-task" class="container">
+            <div id="form-container">
+                <h2>Adicionar Tarefa</h2>
+                <form name="newTask"> 
+                    <label for="task">Digite uma tarefa:</label>
+                    <p class="message-error" data-error="task-name"></p>
+                    <div id="inputs">
+                    <input type="text" name="task" id="task" class="input-Edit" placeholder="Ex: Estudar React">
+                    <button name="add" class="buttons">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="all-tasks" class="container">
+            <div id="tasks">
+                <h2>Tarefas:</h2>
+                <ul id="list-task">
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer> 
+        <p>&copy; Desenvolvido por <a href="#">Nyxoraith</a></p>
+    </footer>
+</body>
+</html>
